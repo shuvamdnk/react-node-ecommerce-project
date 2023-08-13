@@ -1,0 +1,44 @@
+.product_card:hover {
+    background-color: rgb(255, 247, 248);
+}
+
+.product_images {
+    height: 230px;
+    object-fit: contain;
+    padding: 5px;
+}
+
+.product_pricing {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product_text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30ch;
+}
+
+.wishlist_btn{
+    position: absolute;
+    right:0;
+    background-color:#fff;
+    border-radius: 50%;
+    border:1px solid #f8a7a7;
+    color: red;
+    margin-right: 10px;
+    margin-top: 5px;
+    padding-left: 7px;
+    padding-right: 7px;;
+    padding-bottom: 5px;
+}
+
+.view_details_btn{
+    text-decoration: none;
+}
+
+.view_details_btn:hover{
+    background-color:  rgb(248, 240, 255);;
+    border:1ps solid rgb(148, 60, 225);;
+}
