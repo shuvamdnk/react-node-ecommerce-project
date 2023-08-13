@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, useLocation } from 'react-router-dom';
 import { useEffect } from 'react'
 
 import RootLayout from './pages/Root';
@@ -34,17 +34,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  // const handleRouteUpdate = () => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: 'instant'
-  //   });
-  // };
-  // useEffect(() => {
-  //   console.log('calling');
-  //   handleRouteUpdate();
-  // }, [router])
   return (
     <>
       <RouterProvider router={router} />
