@@ -8,6 +8,9 @@ import HomePage from './pages/Home';
 import CategoryPage from './pages/Category';
 import Login from './pages/Login';
 
+// Style
+import './App.css';
+
 const router = createBrowserRouter([
   {
     path: '/',

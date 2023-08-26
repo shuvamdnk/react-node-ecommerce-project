@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 // style
@@ -13,6 +13,10 @@ import classes from './MainNavigation.module.css';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 const MainNavigationBar: React.FC = () => {
+    // const [show,setDropDown] = useState(false);
+    // const toggleDropdown = () => {
+    //     setDropDown(!show)
+    // }
     return (
         <>
             {['lg'].map((expand, index) => (
@@ -38,14 +42,14 @@ const MainNavigationBar: React.FC = () => {
                             <Offcanvas.Body>
 
                                 <Nav className="me-auto">
-                                    <NavDropdown title="Catrgories" id="collasible-nav-dropdown">
-                                        <ListGroup style={{height:'auto',maxHeight:'400px',overflowY:'scroll'}}>
+                                    <NavDropdown className={classes.dropdown_box} title="Catrgories" id="collasible-nav-dropdown">
+                                        <ListGroup className={classes.list_group_box}>
                                             <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
                                                 <ListGroup.Item className='border-0' active>
                                                     Action
                                                 </ListGroup.Item>
                                             </Link>
-                                            <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
+                                            <Link to={'/category/10/products'} className={`${classes.category_list} shadow-sm mb-1`}>
                                                 <ListGroup.Item className='border-0'>
                                                     ActionActionActionActionActionAction ActionActionActionAction
                                                 </ListGroup.Item>
