@@ -1,0 +1,18 @@
+.image_col{
+    display: flex;
+    justify-content: center;
+}
+.image_col img{
+    object-fit: contain;
+    width: 90%;
+    height: 400px;
+}
+
+.rating_overview_div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total_rating{
+    font-size: 40px;
+}

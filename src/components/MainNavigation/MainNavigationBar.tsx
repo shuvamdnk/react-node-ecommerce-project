@@ -43,40 +43,20 @@ const MainNavigationBar: React.FC = () => {
 
                                 <Nav className="me-auto">
                                     <NavDropdown className={classes.dropdown_box} title="Catrgories" id="collasible-nav-dropdown">
-                                        <ListGroup className={classes.list_group_box}>
+                                        <ListGroup className={`${classes.list_group_box}`}>
                                             <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
                                                 <ListGroup.Item className='border-0' active>
                                                     Action
                                                 </ListGroup.Item>
                                             </Link>
-                                            <Link to={'/category/10/products'} className={`${classes.category_list} shadow-sm mb-1`}>
+                                            <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
                                                 <ListGroup.Item className='border-0'>
-                                                    ActionActionActionActionActionAction ActionActionActionAction
+                                                    Action
                                                 </ListGroup.Item>
                                             </Link>
                                             <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
                                                 <ListGroup.Item className='border-0'>
-                                                    ActionActionActionActionActionAction ActionActionActionAction
-                                                </ListGroup.Item>
-                                            </Link>
-                                            <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
-                                                <ListGroup.Item className='border-0'>
-                                                    ActionActionActionActionActionAction ActionActionActionAction
-                                                </ListGroup.Item>
-                                            </Link>
-                                            <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
-                                                <ListGroup.Item className='border-0'>
-                                                    ActionActionActionActionActionAction ActionActionActionAction
-                                                </ListGroup.Item>
-                                            </Link>
-                                            <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
-                                                <ListGroup.Item className='border-0'>
-                                                    ActionActionActionActionActionAction ActionActionActionAction
-                                                </ListGroup.Item>
-                                            </Link>
-                                            <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
-                                                <ListGroup.Item className='border-0'>
-                                                    ActionActionActionActionActionAction ActionActionActionAction
+                                                    ActionActio
                                                 </ListGroup.Item>
                                             </Link>
                                             <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>

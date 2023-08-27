@@ -15,7 +15,7 @@ const ProductCard: React.FC = () => {
     return (
         <>
             <Card className={`border-0 shadow-sm ${classes.product_card}`}>
-                <Card.Img variant="top" className={`${classes.product_images}`} src="https://rukminim2.flixcart.com/image/832/832/kgzg8sw0/chocolate/g/r/w/19-creamy-milky-and-cocoa-chocolate-with-extruded-rice-kinder-original-imafx3snzrgvgzgf.jpeg?q=70" />
+                <Card.Img variant="top" className={`${classes.product_images}`} src="https://rukminim2.flixcart.com/image/832/832/xif0q/edible-oil/c/d/5/-original-imagg9yyvysnqs4b.jpeg?q=70" />
                 <button className={`${classes.wishlist_btn}`} onClick={toggleWishList}>
                     {wishlist ? <FaHeart /> : <FaRegHeart />}
 
@@ -30,7 +30,7 @@ const ProductCard: React.FC = () => {
                         This text is quite long This text is quite long This text is quite long
                     </p>
                     <div>
-                        <Link to={'/'} className={`${classes.view_details_btn} btn btn-sm`}>View details</Link>
+                        <Link to={'/product-details/455'} className={`${classes.view_details_btn} btn btn-sm`}>View details</Link>
                     </div>
                 </Card.Body>
             </Card>

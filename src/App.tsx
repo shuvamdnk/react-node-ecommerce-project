@@ -7,6 +7,7 @@ import RootLayout from './pages/Root';
 import HomePage from './pages/Home';
 import CategoryPage from './pages/Category';
 import Login from './pages/Login';
+import ProductDetails from './pages/ProductDetails';
 
 // Style
 import './App.css';
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Login />,
+      },
+      {
+        path: '/product-details/:id',
+        element: <ProductDetails />,
       },
     ]
   },
