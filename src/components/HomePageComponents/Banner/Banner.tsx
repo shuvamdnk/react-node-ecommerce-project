@@ -8,21 +8,21 @@ const Banner: React.FC = () => {
             <Carousel.Item interval={1000} className={classes.carousel_item}>
                 <img
                     className="d-block w-100"
-                    src="https://www.samsungindiamarketing.com/SES/images/SES/14902_S23_Digital-banner-1440x760_new-text638136971618701663.jpg"
+                    src="https://i.pinimg.com/originals/37/12/e4/3712e4921086beef88529eccdd522a0a.png"
                     alt="First slide"
                 />
             </Carousel.Item>
             <Carousel.Item interval={500} className={classes.carousel_item}>
                 <img
                     className="d-block w-100"
-                    src="https://i.pinimg.com/originals/ea/bd/aa/eabdaadef69a169117a2900e77bfde9f.jpg"
+                    src="https://www.cartly.ca/cdn/shop/files/Everyday_Specials_-_Banner_2000x.jpg?v=1633107773"
                     alt="Second slide"
                 />
             </Carousel.Item>
             <Carousel.Item className={classes.carousel_item}>
                 <img
                     className="d-block w-100"
-                    src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d80af4118883485.6092425f50c79.jpg"
+                    src="https://i.pinimg.com/736x/22/3a/3a/223a3aef3c0de598ca156a313136200d.jpg"
                     alt="Third slide"
                 />
             </Carousel.Item>

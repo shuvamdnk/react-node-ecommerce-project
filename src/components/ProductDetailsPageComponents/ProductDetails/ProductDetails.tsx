@@ -22,7 +22,7 @@ const ProductDetails: React.FC = () => {
                                     
                                 </Col>
                                 <Col sm={7} className={`${classes.product_destails_col}`}>
-                                    <h5>brozzo I7-4220 (16 GB RAM/4GB RADEON RX 550 Graphics/1 TB Hard Disk/Windows 10 (64-bit)/4GB RADEON RX 550 GB Graphics Memory) Mid Tower with MS Office  (GT GAMER- I-7 4220)</h5>
+                                    <h5>Fortune Kachi Ghani Mustard Oil Pouch  (1 L)</h5>
 
                                     <span>
                                         <Badge bg="success">4.5</Badge> 4 Ratings & 0 Reviews
@@ -44,11 +44,8 @@ const ProductDetails: React.FC = () => {
                                     <span>Highlights:</span>
 
                                     <ul>
-                                        <li>Processor Type: Intel 3 GHz</li>
-                                        <li>Processor Type: Intel 3 GHz</li>
-                                        <li>Processor Type: Intel 3 GHz</li>
-                                        <li>Processor Type: Intel 3 GHz</li>
-                                        <li>Processor Type: Intel 3 GHz</li>
+                                        <li>Used For: Cooking</li>
+                                        <li>Processing Type: Cold Pressured</li>
                                     </ul>
 
                                     <hr />
@@ -85,18 +82,14 @@ const ProductDetails: React.FC = () => {
                                                 <div className={`p-2 border mb-1 rounded`}>
                                                     <span><Badge bg="success">4.5</Badge> <span>Awesome</span> </span>
                                                     <p>
-                                                        The Samsung S23 ultra is surely the best smart phone as of today in the market, if it fits your budget then just go for it. Their are hardly any cons or limitations or scope of improvements in this phone, just build to perfection!
-
-                                                        Thank you AcrossIndia seller and Flipkart for delivery this amazing project and Samsung you keep rocking 🤩
+                                                    Very good quality of kachi ghani
                                                     </p>
                                                 </div>
 
                                                 <div className={`p-2 border mb-1 rounded`}>
                                                     <span><Badge bg="success">4.5</Badge> <span>Awesome</span> </span>
                                                     <p>
-                                                        The Samsung S23 ultra is surely the best smart phone as of today in the market, if it fits your budget then just go for it. Their are hardly any cons or limitations or scope of improvements in this phone, just build to perfection!
-
-                                                        Thank you AcrossIndia seller and Flipkart for delivery this amazing project and Samsung you keep rocking 🤩
+                                                    Satisfied
                                                     </p>
                                                 </div>
 
