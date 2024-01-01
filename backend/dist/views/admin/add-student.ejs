@@ -1,0 +1,110 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <div
+    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+  >
+    <h1 class="h2">Add Student</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Share</button> -->
+        <button
+          type="button"
+          onclick="location.href='/student'"
+          class="btn btn-sm btn-outline-secondary"
+        >
+          View Students
+        </button>
+      </div>
+      <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+          <span data-feather="calendar" class="align-text-bottom"></span>
+          This week
+        </button> -->
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <div class="card border-0 mb-5">
+      <div class="card-header border-0">Add Student</div>
+      <form action="/store-student" method="post" id="studentStoreForm" enctype="multipart/form-data">
+        <div class="card-body">
+            <div id="Msg"></div>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control shadow-sm"
+              id="name"
+              name="name"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input
+              type="text"
+              class="form-control shadow-sm"
+              id="email"
+              name="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input
+              type="number"
+              class="form-control shadow-sm"
+              name="phone"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Stream</label>
+            <select name="stream" id="" class="form-control shadow-sm">
+              <option value="">Select Stream</option>
+              <option value="bca">BCA</option>
+              <option value="mca">MCA</option>
+              <option value="bba">BBA</option>
+              <option value="mba">MBA</option>
+              <option value="b-tech">B-Tech</option>
+              <option value="m-tech">M-Tech</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Gender</label>
+            <br />
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="gander"
+              value="male"
+            />
+            <label class="form-check-label"> Male </label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="gander"
+              value="female"
+            />
+            <label class="form-check-label"> Female </label>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Address</label>
+            <textarea
+              name="address"
+              class="form-control shadow-sm"
+              id="address"
+              cols="30"
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+        <div class="card-footer border-0">
+          <button
+            type="submit"
+            class="btn float-right btn-outline-success border-0 shadow-sm btn-sm"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

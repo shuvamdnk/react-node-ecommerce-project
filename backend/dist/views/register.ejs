@@ -1,0 +1,68 @@
+<!--contentFor("other")-->
+<!-- Register Content -->
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-4 offset-md-4">
+      <div class="card border-0 shadow">
+        <div class="card-header border-0">
+          <h4 class="text-primary">Register</h4>
+        </div>
+        <form action="/register" method="post" id="signupForm">
+          <div class="card-body">
+            <div id="Msg"></div>
+
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control shadow-sm"
+                placeholder="name@example.com",
+                name="name"
+                id="name"
+              />
+              <label for="floatingInputName">Name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control shadow-sm"
+                placeholder="name@example.com"
+                name="email"
+                id="email"
+              />
+              <label for="floatingInput">Email address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control shadow-sm"
+                placeholder="Password"
+                name="password"
+                id="password"
+              />
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <div class="form-floating">
+              <input
+                type="password"
+                class="form-control shadow-sm"
+                placeholder="Password"
+                name="confirmPassword"
+                id="confirmPassword"
+              />
+              <label for="floatingPassword">Confirm Password</label>
+            </div>
+
+          </div>
+          <div class="card-footer border-0">
+            <div class="d-grid gap-2">
+              <button class="btn btn-success btn-lg" type="submit">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

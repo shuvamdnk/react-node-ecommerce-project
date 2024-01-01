@@ -1,0 +1,62 @@
+.search_input {
+    width: 400px;
+    border:1px solid #be667a;
+}
+
+.search_input:focus{
+    border:1px solid rgb(159, 129, 230);
+}
+
+.brand_name{
+    text-decoration: none;
+    color: black;
+}
+
+.category_list{
+    text-decoration: none;
+    color: black;
+    border:1px solid #fff;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.category_list:hover{
+    border:1px solid rgb(159, 129, 230);
+}
+
+.list_group_box{
+    height: auto;
+    max-height: 420px;
+    overflow-y: scroll;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu{
+    border: none;
+}
+
+@media (max-width: 480px) {
+    .search_input {
+        width: 250px;
+    }
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+    .search_input {
+        width: 300px;
+    }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .search_input {
+        width: 350px;
+    }
+}
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .search_input {
+        width: 400px;
+    }
+}
