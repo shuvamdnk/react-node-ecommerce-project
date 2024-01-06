@@ -63,7 +63,7 @@ const MainNavigationBar: React.FC = () => {
                     <Container fluid>
                         <Navbar.Brand>
                             <Link to={'/profile'} className={`${classes.brand_name}`}>
-                                <img src={'./logo.png'} width={30} alt='Shopping' />
+                                <img src={`http://localhost:5173/logo.png`} width={30} alt='Shopping' />
                             </Link>
                         </Navbar.Brand>
 

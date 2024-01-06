@@ -55,12 +55,17 @@ const router = createBrowserRouter([
         element: <Protected component={Profile} />
       },
       {
-        path: '/payment/failed',
-        element: <PaymentFailed />,
-      },
-      {
-        path: '/payment/success',
-        element: <PaymentSuccess />,
+        path: '/payment',
+        children:[
+          {
+            path:'failed',
+            element: <PaymentFailed />,
+          },
+          {
+            path:'success',
+            element: <PaymentSuccess />,
+          }
+        ]
       },
     ]
   },
