@@ -8,6 +8,8 @@ import HomePage from './pages/Home';
 import CategoryPage from './pages/Category';
 import Login from './pages/Login';
 import ProductDetails from './pages/ProductDetails';
+import PaymentFailed from './pages/PaymentFailed';
+import PaymentSuccess from './pages/PaymentSuccess';
 
 // Style
 import './App.css';
@@ -17,6 +19,7 @@ import Error from './pages/Error';
 import Profile from './pages/Profile';
 import Protected from './pages/Protected';
 
+  
 const router = createBrowserRouter([
   {
     path: '/',
@@ -50,7 +53,15 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Protected component={Profile} />
-      }
+      },
+      {
+        path: '/payment/failed',
+        element: <PaymentFailed />,
+      },
+      {
+        path: '/payment/success',
+        element: <PaymentSuccess />,
+      },
     ]
   },
 ]);
