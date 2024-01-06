@@ -23,7 +23,7 @@ apiRoute.post('/auth/register', form_data.any(), signupValidationRules(), UserRe
 
 /**************** auth routes ******************/
 apiRoute.get('/auth/verify', form_data.any(), auth, UserVerify);
-apiRoute.post('/create-checkout-session', async (req, res, next) => {
+apiRoute.post('/create-checkout-session', auth, async (req, res, next) => {
     console.log('here');
 
     const products = [
@@ -50,6 +50,11 @@ apiRoute.post('/create-checkout-session', async (req, res, next) => {
                 },
                 unit_amount: Math.round(product.price * 100),
             },
+            adjustable_quantity: {
+                enabled: true,
+                minimum: 1,
+                maximum: 10,
+            },
             quantity: product.quantity,
         }
     ))
@@ -73,8 +78,15 @@ apiRoute.post('/create-checkout-session', async (req, res, next) => {
 
 
     const session = await stripe.checkout.sessions.create({
-        payment_method_types:['card'],
-        line_items:lineItems,
+        customer_email: 'sd@test.com',
+        payment_method_types: ['card'],
+        line_items: lineItems,
+        phone_number_collection: {
+            enabled: true,
+        },
+        // shipping_address_collection: {
+        //     allowed_countries: ['US','IN'],
+        // },
         // line_items: [
         //     {
         //         price_data: {

@@ -22,7 +22,7 @@ apiRoute.post('/auth/login', form_data.any(), (0, apiValidation_1.loginValidatio
 apiRoute.post('/auth/register', form_data.any(), (0, apiValidation_1.signupValidationRules)(), UserController_1.UserRegistration);
 /**************** auth routes ******************/
 apiRoute.get('/auth/verify', form_data.any(), apiAuth_1.auth, UserController_1.UserVerify);
-apiRoute.post('/create-checkout-session', async (req, res, next) => {
+apiRoute.post('/create-checkout-session', apiAuth_1.auth, async (req, res, next) => {
     console.log('here');
     const products = [
         {
@@ -47,6 +47,11 @@ apiRoute.post('/create-checkout-session', async (req, res, next) => {
             },
             unit_amount: Math.round(product.price * 100),
         },
+        adjustable_quantity: {
+            enabled: true,
+            minimum: 1,
+            maximum: 10,
+        },
         quantity: product.quantity,
     }));
     console.log(lineItems);
@@ -63,8 +68,15 @@ apiRoute.post('/create-checkout-session', async (req, res, next) => {
     //     cancel_url: 'http://localhost:5173/payment/failed',
     // })
     const session = await stripe.checkout.sessions.create({
+        customer_email: 'sd@test.com',
         payment_method_types: ['card'],
         line_items: lineItems,
+        phone_number_collection: {
+            enabled: true,
+        },
+        // shipping_address_collection: {
+        //     allowed_countries: ['US','IN'],
+        // },
         // line_items: [
         //     {
         //         price_data: {

@@ -11,7 +11,8 @@ const Profile: React.FC = () => {
         const response = await fetch(`http://localhost:5000/api/create-checkout-session`,{
             method:'POST',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('access_token')}`
             }
         });
         const session = await response.json();
