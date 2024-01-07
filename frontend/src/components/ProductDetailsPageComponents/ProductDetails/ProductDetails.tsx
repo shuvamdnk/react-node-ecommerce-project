@@ -85,9 +85,9 @@ const ProductDetails: React.FC = ({ getDocTitle }) => {
                                             <br />
                                             <span className='text-success'>Extra {product.discountPercentage}% off</span>
 
-                                            <span><h3>${product.price.toFixed(2)}</h3></span>
+                                            <span><h3>₹{Math.round(product.price * 83)}</h3></span>
 
-                                            <span className='text-danger'><del>${(product.price + (product.price * (product.discountPercentage / 100))).toFixed(2)}</del></span>
+                                            <span className='text-danger'><del>₹{(Math.round(product.price * 83) + (Math.round(product.price * 83) * (product.discountPercentage / 100))).toFixed(2)}</del></span>
 
                                             <br />
 
@@ -103,14 +103,14 @@ const ProductDetails: React.FC = ({ getDocTitle }) => {
                                             <div className='m-2 p-1' style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                 <div>
                                                     <Button className='m-1 shadow-sm' variant="outline-primary"><FaCartShopping /> Add To Cart</Button>
-                                                    <Button style={{ borderRadius: '50%', padding: '5px 6px 5px 6px' }} onClick={toggleWishList} className='shadow-sm m-1 pt-0' variant="outline-danger">
+                                                    {/* <Button style={{ borderRadius: '50%', padding: '5px 6px 5px 6px' }} onClick={toggleWishList} className='shadow-sm m-1 pt-0' variant="outline-danger">
                                                         {wishlist ? <FaHeart /> : <FaRegHeart />}
-                                                    </Button>
+                                                    </Button> */}
                                                 </div>
                                                 <div>
-                                                    <Form.Group className="m-1" controlId="exampleForm.ControlInput1">
+                                                    {/* <Form.Group className="m-1" controlId="exampleForm.ControlInput1">
                                                         <Form.Control type="search" className='shadow-sm' placeholder="Enter Delivery Pincode" />
-                                                    </Form.Group>
+                                                    </Form.Group> */}
                                                 </div>
                                             </div>
 

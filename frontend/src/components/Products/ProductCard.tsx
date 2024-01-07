@@ -16,13 +16,13 @@ const ProductCard: React.FC = (props) => {
         <>
             <Card className={`border-0 shadow-sm mt-1 ${classes.product_card}`}>
                 <LazyLoadImage width={'100%'} variant="top" className={`${classes.product_images}`} effect="blur" alt={props.product.title} src={props.product.thumbnail} />
-                <button className={`${classes.wishlist_btn}`} onClick={toggleWishList}>
+                {/* <button className={`${classes.wishlist_btn}`} onClick={toggleWishList}>
                     {wishlist ? <FaHeart /> : <FaRegHeart />}
 
-                </button>
+                </button> */}
                 <Card.Body>
                     <div className={classes.product_pricing}>
-                        <span>${props.product.price}</span>
+                        <span>₹{Math.round(props.product.price * 83)}</span>
                         {/* <span style={{ textDecoration: 'line-through' }}>₹1049</span> */}
                         <span className='text-success'><b>{props.product.stock > 0 ? 'In Stock' : "Out of Stock"}</b></span>
                     </div>

@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import ProductDetails from './pages/ProductDetails';
 import PaymentFailed from './pages/PaymentFailed';
 import PaymentSuccess from './pages/PaymentSuccess';
+import Cart from './pages/Cart';
 
 // Style
 import './App.css';
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: '/profile',
         element: <Protected component={Profile} />
+      },
+      {
+        path: '/cart',
+        element: <Protected component={Cart} />
       },
       {
         path: '/payment',

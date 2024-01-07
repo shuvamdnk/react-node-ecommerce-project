@@ -62,7 +62,7 @@ const MainNavigationBar: React.FC = () => {
                 <Navbar sticky="top" key={index} expand={expand} className="bg-body-tertiary shadow">
                     <Container fluid>
                         <Navbar.Brand>
-                            <Link to={'/profile'} className={`${classes.brand_name}`}>
+                            <Link to={'/'} className={`${classes.brand_name}`}>
                                 <img src={`http://localhost:5173/logo.png`} width={30} alt='Shopping' />
                             </Link>
                         </Navbar.Brand>
@@ -111,10 +111,12 @@ const MainNavigationBar: React.FC = () => {
                                 </Nav>
 
                                 <Nav>
-                                    <Nav.Link href="#deets">
-                                        <FaCartShopping />
-                                        (10)
-                                    </Nav.Link>
+                                    <Link to={'/cart'} style={{textDecoration:'none'}}>
+                                        <Nav.Link href="#deets">
+                                            <FaCartShopping />
+                                            (10)
+                                        </Nav.Link>
+                                    </Link>
                                     {
                                         isAuthenticated &&
                                         <NavDropdown align={{ lg: 'end' }} title="My Account" id="collasible-nav-dropdown">
@@ -124,11 +126,11 @@ const MainNavigationBar: React.FC = () => {
                                                         My Profile
                                                     </ListGroup.Item>
                                                 </Link>
-                                                <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
+                                                {/* <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
                                                     <ListGroup.Item className='border-0'>
                                                         Wishlist
                                                     </ListGroup.Item>
-                                                </Link>
+                                                </Link> */}
                                                 <Link to={'/category/12/products'} className={`${classes.category_list} shadow-sm mb-1`}>
                                                     <ListGroup.Item className='border-0'>
                                                         Orders
