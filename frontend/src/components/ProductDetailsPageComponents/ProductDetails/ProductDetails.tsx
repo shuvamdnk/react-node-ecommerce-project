@@ -13,9 +13,14 @@ import RelatedProducts from '../RelatedProducts/RelatedProduct';
 import Form from 'react-bootstrap/Form';
 import { FaCartShopping } from "react-icons/fa6";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { cartSliceActions } from '../../../store/slices/cart-slice';
 const ProductDetails: React.FC = ({ getDocTitle }) => {
     const [wishlist, setWishlist] = useState(false);
+
+    const dispatch = useDispatch();
+
+    const productIdArr = useSelector((state) => state.cart.productIdArr);
 
     const toggleWishList = () => {
         setWishlist(preWishState => !preWishState);
@@ -42,12 +47,16 @@ const ProductDetails: React.FC = ({ getDocTitle }) => {
         async function getCategoryProducts() {
             const response = await fetch(`https://dummyjson.com/products/category/${params.categoryID}`);
             const data = await response.json();
-        
+
             setCategoryProducts(data.products)
         }
         // getCategoryProducts();
         getProductDetails();
     }, [params])
+
+    function addToCartHandler() {
+        dispatch(cartSliceActions.addToCart(product));
+    }
 
     return (
         <>
@@ -102,7 +111,14 @@ const ProductDetails: React.FC = ({ getDocTitle }) => {
                                             <hr />
                                             <div className='m-2 p-1' style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                 <div>
-                                                    <Button className='m-1 shadow-sm' variant="outline-primary"><FaCartShopping /> Add To Cart</Button>
+                                                    {
+                                                        productIdArr.includes(product.id) 
+                                                        ? 
+                                                        <Button className='m-1 shadow-sm' onClick={addToCartHandler} variant="outline-danger"><FaCartShopping /> Remove From Cart</Button>
+                                                        :
+                                                        <Button className='m-1 shadow-sm' onClick={addToCartHandler} variant="outline-primary"><FaCartShopping /> Add To Cart</Button>
+                                                    }
+                                                   
                                                     {/* <Button style={{ borderRadius: '50%', padding: '5px 6px 5px 6px' }} onClick={toggleWishList} className='shadow-sm m-1 pt-0' variant="outline-danger">
                                                         {wishlist ? <FaHeart /> : <FaRegHeart />}
                                                     </Button> */}

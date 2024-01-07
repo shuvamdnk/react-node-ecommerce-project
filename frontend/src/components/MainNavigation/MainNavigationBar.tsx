@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // style
+import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -23,6 +25,7 @@ const MainNavigationBar: React.FC = () => {
     // }
 
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const totalCart = useSelector((state) => state.cart.totalCart);
     const dispatch = useDispatch();
 
     // console.log(isAuthenticated);
@@ -34,13 +37,15 @@ const MainNavigationBar: React.FC = () => {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
+        console.log(totalCart);
+
         async function getCategories() {
             const response = await fetch('https://dummyjson.com/products/categories')
             const data = await response.json();
             setCategories(data);
         }
         getCategories();
-    }, [])
+    }, [totalCart])
 
     const handleSearch = (e: Event) => {
         e.preventDefault();
@@ -111,11 +116,11 @@ const MainNavigationBar: React.FC = () => {
                                 </Nav>
 
                                 <Nav>
-                                    <Link to={'/cart'} style={{textDecoration:'none'}}>
-                                        <Nav.Link href="#deets">
-                                            <FaCartShopping />
-                                            (10)
-                                        </Nav.Link>
+                                    <Link to={'/cart'} style={{ textDecoration: 'none' }}>
+                                        <Button className='shadow-sm' variant="outline-light">
+                                        <FaCartShopping  color='#5A5A5A'/> &nbsp;
+                                        <Badge bg="secondary">{totalCart && ((totalCart))}</Badge>
+                                        </Button>
                                     </Link>
                                     {
                                         isAuthenticated &&

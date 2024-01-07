@@ -8,7 +8,6 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const JWT_SECRET = String(process.env.JWT_API_SECRET);
 const auth = async (req, res, next) => {
     var _a;
-    console.log(req.cookies.access_token);
     const token = ((_a = req.headers['authorization']) === null || _a === void 0 ? void 0 : _a.split(' ')[1]) || req.cookies.access_token || req.query.token;
     if (!token) {
         return res.status(401).json({

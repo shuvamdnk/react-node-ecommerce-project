@@ -4,7 +4,6 @@ import jwt, { VerifyErrors } from "jsonwebtoken";
 const JWT_SECRET = String(process.env.JWT_API_SECRET);
 
 export const auth: RequestHandler = async (req, res, next) => {
-    console.log(req.cookies.access_token);
     
     const token = req.headers['authorization']?.split(' ')[1] || req.cookies.access_token || req.query.token;
 
