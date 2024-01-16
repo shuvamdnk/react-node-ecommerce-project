@@ -13,6 +13,7 @@ import { signupValidationRules, loginValidationRules, StudentStoreRules, Student
 // Middleware 
 import { auth } from '../middleware/apiAuth';
 import multer from 'multer';
+import { Json } from 'sequelize/types/utils';
 const form_data = multer();
 
 // api routes
@@ -23,23 +24,48 @@ apiRoute.post('/auth/register', form_data.any(), signupValidationRules(), UserRe
 
 /**************** auth routes ******************/
 apiRoute.get('/auth/verify', form_data.any(), auth, UserVerify);
-apiRoute.post('/create-checkout-session', auth, async (req, res, next) => {
-    console.log('here');
+apiRoute.post('/create-checkout-session', auth, form_data.any(), async (req, res, next) => {
+    console.log('Stripe');
 
-    const products = [
-        {
-            name: 'ASUS VivoBook 14 Intel Core i3 10th Gen 1005G1',
-            image: 'https://rukminim2.flixcart.com/image/416/416/xif0q/computer/w/q/x/-original-imagpxgqge3czyhy.jpeg?q=70',
-            price: 40000,
-            quantity: 2
-        },
-        {
-            name: 'Google Pixel 7a (Sea, 128 GB)  (8 GB RAM)',
-            image: 'https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/z/b/d/-original-imagpgx48f4szdvf.jpeg?q=70',
-            price: 35000,
+    if (req.body.cartItems.lenght == 0) {
+        res.json({
+            success: false,
+            message: 'Cart is empty',
+        })
+        return
+    }
+
+    const products:any[] = [];
+
+    JSON.parse(req.body.cartItems).map(product => (
+
+        products.push({
+            name: product.title,
+            image: product.thumbnail,
+            price: Math.round(product.price * 83),
             quantity: 1
-        }
-    ]
+        })
+        // products.
+    ))
+
+    // console.log(products);
+    
+
+    // const products = [
+    //     {
+    //         name: 'ASUS VivoBook 14 Intel Core i3 10th Gen 1005G1',
+    //         image: 'https://rukminim2.flixcart.com/image/416/416/xif0q/computer/w/q/x/-original-imagpxgqge3czyhy.jpeg?q=70',
+    //         price: 40000,
+    //         quantity: 2
+    //     },
+    //     {
+    //         name: 'Google Pixel 7a (Sea, 128 GB)  (8 GB RAM)',
+    //         image: 'https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/z/b/d/-original-imagpgx48f4szdvf.jpeg?q=70',
+    //         price: 35000,
+    //         quantity: 1
+    //     }
+    // ]
+
     const lineItems = products.map((product) => (
         {
             price_data: {
@@ -50,16 +76,16 @@ apiRoute.post('/create-checkout-session', auth, async (req, res, next) => {
                 },
                 unit_amount: Math.round(product.price * 100),
             },
-            adjustable_quantity: {
-                enabled: true,
-                minimum: 1,
-                maximum: 10,
-            },
+            // adjustable_quantity: {
+            //     enabled: true,
+            //     minimum: 1,
+            //     maximum: 10,
+            // },
             quantity: product.quantity,
         }
     ))
 
-    console.log(lineItems);
+    // console.log(lineItems);
 
 
 

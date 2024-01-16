@@ -15,12 +15,16 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { useDispatch, useSelector } from 'react-redux';
 import { cartSliceActions } from '../../../store/slices/cart-slice';
+import { toast } from 'react-toastify';
+
 const ProductDetails: React.FC = ({ getDocTitle }) => {
     const [wishlist, setWishlist] = useState(false);
 
     const dispatch = useDispatch();
 
     const productIdArr = useSelector((state) => state.cart.productIdArr);
+
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     const toggleWishList = () => {
         setWishlist(preWishState => !preWishState);
@@ -29,6 +33,9 @@ const ProductDetails: React.FC = ({ getDocTitle }) => {
     const [product, setProduct] = useState();
     const [message, setMessage] = useState();
     const [categoryProduct, setCategoryProducts] = useState([]);
+    useEffect(() => {
+
+    },[isAuthenticated])
     useEffect(() => {
         async function getProductDetails() {
             const response = await fetch(`https://dummyjson.com/products/${params.productID}`);
@@ -56,6 +63,10 @@ const ProductDetails: React.FC = ({ getDocTitle }) => {
 
     function addToCartHandler() {
         dispatch(cartSliceActions.addToCart(product));
+    }
+
+    function loginToAddProductHandler(){
+        toast.error('Please login first to add items in your cart.');
     }
 
     return (
@@ -112,11 +123,14 @@ const ProductDetails: React.FC = ({ getDocTitle }) => {
                                             <div className='m-2 p-1' style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                 <div>
                                                     {
+                                                        isAuthenticated ?
                                                         productIdArr.includes(product.id) 
                                                         ? 
                                                         <Button className='m-1 shadow-sm' onClick={addToCartHandler} variant="outline-danger"><FaCartShopping /> Remove From Cart</Button>
                                                         :
                                                         <Button className='m-1 shadow-sm' onClick={addToCartHandler} variant="outline-primary"><FaCartShopping /> Add To Cart</Button>
+                                                        :
+                                                        <Button className='m-1 shadow-sm' onClick={loginToAddProductHandler} variant="outline-primary"><FaCartShopping /> Add To Cart</Button>
                                                     }
                                                    
                                                     {/* <Button style={{ borderRadius: '50%', padding: '5px 6px 5px 6px' }} onClick={toggleWishList} className='shadow-sm m-1 pt-0' variant="outline-danger">

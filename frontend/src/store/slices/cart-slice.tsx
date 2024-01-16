@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    totalCart: null,
+    totalCart: 0,
+    totalAmount:0,
     cartItems: [],
     productIdArr: [],
     // user: (localStorage.getItem('access_token') && localStorage.getItem('user'))
@@ -14,8 +15,12 @@ const cartSlice = createSlice({
     reducers: {
         addToCart(state, action) {
             if (state.productIdArr.includes(action.payload.id)) {
-
+                state.totalAmount = state.totalAmount - Math.round(action.payload.price * 83)
+                state.totalCart = state.totalCart - 1;
+                state.cartItems = state.cartItems.filter(cart => cart.id !== action.payload.id);
+                state.productIdArr = state.productIdArr.filter(pid => pid !== action.payload.id);
             } else {
+                state.totalAmount = state.totalAmount + Math.round(action.payload.price * 83)
                 state.totalCart = state.totalCart + 1;
                 state.cartItems.push(action.payload);
                 state.productIdArr.push(action.payload.id);

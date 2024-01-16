@@ -22,22 +22,39 @@ apiRoute.post('/auth/login', form_data.any(), (0, apiValidation_1.loginValidatio
 apiRoute.post('/auth/register', form_data.any(), (0, apiValidation_1.signupValidationRules)(), UserController_1.UserRegistration);
 /**************** auth routes ******************/
 apiRoute.get('/auth/verify', form_data.any(), apiAuth_1.auth, UserController_1.UserVerify);
-apiRoute.post('/create-checkout-session', apiAuth_1.auth, async (req, res, next) => {
-    console.log('here');
-    const products = [
-        {
-            name: 'ASUS VivoBook 14 Intel Core i3 10th Gen 1005G1',
-            image: 'https://rukminim2.flixcart.com/image/416/416/xif0q/computer/w/q/x/-original-imagpxgqge3czyhy.jpeg?q=70',
-            price: 40000,
-            quantity: 2
-        },
-        {
-            name: 'Google Pixel 7a (Sea, 128 GB)  (8 GB RAM)',
-            image: 'https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/z/b/d/-original-imagpgx48f4szdvf.jpeg?q=70',
-            price: 35000,
-            quantity: 1
-        }
-    ];
+apiRoute.post('/create-checkout-session', apiAuth_1.auth, form_data.any(), async (req, res, next) => {
+    console.log('Stripe');
+    if (req.body.cartItems.lenght == 0) {
+        res.json({
+            success: false,
+            message: 'Cart is empty',
+        });
+        return;
+    }
+    const products = [];
+    JSON.parse(req.body.cartItems).map(product => (products.push({
+        name: product.title,
+        image: product.thumbnail,
+        price: Math.round(product.price * 83),
+        quantity: 1
+    })
+    // products.
+    ));
+    // console.log(products);
+    // const products = [
+    //     {
+    //         name: 'ASUS VivoBook 14 Intel Core i3 10th Gen 1005G1',
+    //         image: 'https://rukminim2.flixcart.com/image/416/416/xif0q/computer/w/q/x/-original-imagpxgqge3czyhy.jpeg?q=70',
+    //         price: 40000,
+    //         quantity: 2
+    //     },
+    //     {
+    //         name: 'Google Pixel 7a (Sea, 128 GB)  (8 GB RAM)',
+    //         image: 'https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/z/b/d/-original-imagpgx48f4szdvf.jpeg?q=70',
+    //         price: 35000,
+    //         quantity: 1
+    //     }
+    // ]
     const lineItems = products.map((product) => ({
         price_data: {
             currency: 'inr',
@@ -47,14 +64,14 @@ apiRoute.post('/create-checkout-session', apiAuth_1.auth, async (req, res, next)
             },
             unit_amount: Math.round(product.price * 100),
         },
-        adjustable_quantity: {
-            enabled: true,
-            minimum: 1,
-            maximum: 10,
-        },
+        // adjustable_quantity: {
+        //     enabled: true,
+        //     minimum: 1,
+        //     maximum: 10,
+        // },
         quantity: product.quantity,
     }));
-    console.log(lineItems);
+    // console.log(lineItems);
     // const session = await stripe.checkout.sessions.create({
     //     payment_method_types: ['card'],
     //     line_items: [

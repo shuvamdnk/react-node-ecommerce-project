@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"cd backend && nodemon dist/app.js\" \"cd frontend && npm run dev\""
+    "start": "concurrently \"cd backend && nodemon dist/app.js\" \"cd backend && tsc -w\" \"cd frontend && npm run dev\""
   },
   "keywords": [],
   "author": "",
